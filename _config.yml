@@ -82,11 +82,11 @@ analytics:
 author:
   name             : "Mike Anoruo"
   avatar           : "Mike_Anoruo_Headshots.png"
-  bio              : "Your biography for the left-hand sidebar"
+  bio              : "My name is Michael Anoruo; I recently graduated from the University of Maryland, Baltimore County, where I studied Computer Science with a focus on Artificial Intelligence and Machine Learning (AI/ML). I aspire to pursue a Ph.D. and continue my studies in AI/ML, learning more about its many applications and how to utilize it to improve the world around us. "
   location         : "Baltimore, MD"
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "http://yourfullgooglescholarurl.com"
+  pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  googlescholar    : #"http://yourfullgooglescholarurl.com"
   email            :
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
@@ -96,20 +96,20 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "Manoruo@github.com"
+  github           : "Manoruo"
   google_plus      :
   keybase          :
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         :
-  orcid            : "http://orcid.org/yourorcidurl"
+  linkedin         : michael-anoruo-358b57257
+  orcid            : #"http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "replacethistwitterhandle"
+  twitter          : #"replacethistwitterhandle"
   vine             :
   weibo            :
   xing             :
