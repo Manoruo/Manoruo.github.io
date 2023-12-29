@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Mike's Homepage" # name at top of website
 title_separator          : "-"
 name                     : &name "Michael Anoruo"
-description              : &description "personal description"
+description              : &description "Mike's personal website"
 url                      : https://manoruo.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "Manoruo/Manoruo.github.io.git"
