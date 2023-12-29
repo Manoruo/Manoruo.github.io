@@ -82,12 +82,12 @@ analytics:
 author:
   name             : "Mike Anoruo"
   avatar           : "Mike_Anoruo_Headshots.png"
-  bio              : "My name is Michael Anoruo; I recently graduated from the University of Maryland, Baltimore County, where I studied Computer Science with a focus on Artificial Intelligence and Machine Learning (AI/ML). I aspire to pursue a Ph.D. and continue my studies in AI/ML, learning more about its many applications and how to utilize it to improve the world around us. "
+  bio              : "AIML + Autonomous Vehicles"
   location         : "Baltimore, MD"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : #"http://yourfullgooglescholarurl.com"
-  email            :
+  googlescholar    : https://scholar.google.com/citations?user=7plqG8oAAAAJ&hl=en #"http://yourfullgooglescholarurl.com"
+  email            : mikeanoruo2@gmail.com
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
