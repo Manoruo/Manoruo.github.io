@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-![Illistration of Work Experiences](/images/UMBCretrievers_LOGO.jpg){: .align-right width="300px"}
+![Illistration of AI + Autonomous Systems](/images/AI_Autonomous_Systems.png){: .align-right width="300px"}
 
 I am a highly motivated scholar who recently graduated from the University of Maryland Baltimore County (UMBC), where I studied Computer Science with a focus on Artificial Intelligence and Machine Learning (AI/ML). 
 
