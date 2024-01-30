@@ -1,0 +1,23 @@
+{% include base_path %}
+
+{% capture teaser %}{{ post.header.teaser | default: site.teaser }}{% endcapture %}
+
+{% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+
+<div class="{{ include.type | default: "list" }}__item" style="width: 30%; height: 30%; display: inline-block; padding-right: 10px">
+  <!-- Start of Portfolio Item -->
+  <article class="portfolio__item" itemscope itemtype="http://schema.org/CreativeWork" style="width: 100%; height: 100%; background-color:mix(#fff, $gray, 25%) ">
+
+    <!-- Display the title with permalink -->
+    <h2 class="portfolio__item-title" itemprop="headline" style="text-align: center">
+      {% if post.link %}
+        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+      {% else %}
+        <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
+      {% endif %}
+    </h2>
+    <!-- Display the image -->
+    <img src="{{ post.image }}" alt="" style="display: block; margin: auto; padding-bottom: 5px;">
+  </article>
+  <!-- End of Portfolio Item -->
+</div>

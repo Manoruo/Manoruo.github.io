@@ -1,0 +1,82 @@
+{% include base_path %}
+
+{% capture teaser %}{{ post.header.teaser | default: site.teaser }}{% endcapture %}
+
+{% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+
+<div class="{{ include.type | default: "list" }}__item">
+  <!-- Start of Portfolio Item -->
+  <article class="portfolio__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    {% if include.type == "grid" and teaser %}
+      <!-- Display teaser image in grid view -->
+      <div class="portfolio__item-teaser">
+        <img src="{% if teaser contains "://" %}{{ teaser }}{% else %}{{ teaser | prepend: "/images/" | prepend: base_path }}{% endif %}" alt="">
+      </div>
+    {% endif %}
+
+    <!-- Display the title with permalink -->
+    <h2 class="portfolio__item-title" itemprop="headline">
+      {% if post.link %}
+        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+      {% else %}
+        <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
+      {% endif %}
+    </h2>
+
+    <!-- Display read time if available -->
+    {% if post.read_time %}
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
+    {% endif %}
+
+    {% assign collection_info = "" %}
+    {% if post.collection == 'teaching' %}
+      <!-- Display information specific to the 'teaching' collection -->
+      {% assign collection_info = post.type | append: ', ' | append: '<i>' | append: post.venue | append: '</i>, ' | append: post.date | date: "%Y" %}
+    {% elsif post.collection == 'publications' %}
+      <!-- Display information specific to the 'publications' collection -->
+      {% assign collection_info = 'Published in <i>' | append: post.venue | append: '</i>, ' | append: post.date | date: "%Y" %}
+    {% elsif post.date %}
+      <!-- Display date information if available -->
+      {% assign collection_info = '<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> ' | append: site.data.ui-text[site.locale].date_label | default: "Published:" | append: '</strong> ' | append: post.date | date: "%B %d, %Y" %}
+    {% endif %}
+    {% if collection_info != "" %}
+      <p class="page__date">{{ collection_info }}</p>
+    {% endif %}
+
+    {% if post.excerpt and site.read_more != 'enabled' %}
+      <!-- Display excerpt if read more is not enabled -->
+      <div class="row" style="display: flex; align-items: center;">
+        <div class="left" style="flex: .35;">
+          <img src="{{ post.image }}" alt="">
+        </div>
+        <div class="right" style="flex: 1;">
+          <p>{{ post.excerpt | markdownify }}</p>
+        </div>
+      </div>
+    {% elsif post.excerpt and site.read_more == 'enabled' %}
+      <!-- Display excerpt with read more link if enabled (edit this one later)-->
+      <p class="portfolio__item-excerpt" itemprop="description">
+        <p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}
+          <strong>
+            <a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a>
+          </strong>
+        </p>
+      </p>
+    {% endif %}
+    
+    {% assign citation_info = "" %}
+    {% if post.citation %}
+      <!-- Display recommended citation if available -->
+      {% assign citation_info = 'Recommended citation: ' | append: post.citation %}
+    {% endif %}
+    {% if post.paperurl %}
+      {% assign paperurl_info = 'Download <a href="' | append: post.paperurl | append: '"><u>here</u></a>' %}
+    {% endif %}
+    {% if citation_info != "" or paperurl_info != "" %}
+      <!-- Display citation and paperurl information if available -->
+      <p>{{ citation_info }}{{ paperurl_info }}</p>
+    {% endif %}
+  </article>
+  <!-- End of Portfolio Item -->
+</div>
