@@ -25,4 +25,4 @@ Integrated a Kaggle dataset containing songs and associated genres, combining it
 - Pandas
 
 ## <ins> GitHub Link </ins>
-[Your GitHub Repository Link Here]
+[Find the project here](https://github.com/Manoruo/Music_Genre_Prediction)
