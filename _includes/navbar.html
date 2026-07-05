@@ -12,7 +12,36 @@
                     <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.name }}</a>
                 </li>
                 {% endfor %}
+                <li class="nav-item">
+                    <a class="nav-link time-of-day" id="time-of-day" href="#" role="button" aria-label="Toggle dark mode"></a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<script>
+    (function () {
+        var el = document.getElementById("time-of-day");
+        if (!el) return;
+
+        function render() {
+            var isDark = document.documentElement.getAttribute("data-theme") === "dark";
+            el.innerHTML = isDark
+                ? '<i class="fas fa-moon"></i>'
+                : '<i class="fas fa-sun"></i>';
+            el.setAttribute("title", isDark ? "Switch to light mode" : "Switch to dark mode");
+        }
+
+        el.addEventListener("click", function (e) {
+            e.preventDefault();
+            var isDark = document.documentElement.getAttribute("data-theme") === "dark";
+            var next = isDark ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", next);
+            localStorage.setItem("theme", next);
+            render();
+        });
+
+        render();
+    })();
+</script>
