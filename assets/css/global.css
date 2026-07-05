@@ -55,6 +55,26 @@ h1, h2, h3, h4, h5, h6,
     line-break: unset;
 }
 
+/* Colored rounded square used in place of an institution logo. */
+.badge-square {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    border-radius: 4px;
+    vertical-align: -10%;
+    margin-right: 2px;
+    line-break: unset;
+}
+
+/* Larger variant used in the Education / Experience lists. */
+.badge-square-lg {
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
 .no-break {
     white-space: nowrap;
 }
