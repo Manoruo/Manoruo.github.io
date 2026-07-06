@@ -1,0 +1,41 @@
+{%- comment -%}
+Reusable showcase card. From a _showcase/*.md file, call:
+    {% include widgets/showcase_card.html item=page %}
+and set these fields in the file's front matter:
+    title, subtitle, description   — text
+    icon                           — Font Awesome class for the banner (e.g. "fas fa-eye")
+    color                          — CSS background for the banner (e.g. a linear-gradient)
+    image                          — optional real image URL; overrides the icon banner
+    skills                         — list of tool/skill tags rendered as badges
+    link, link_text                — optional external link
+{%- endcomment -%}
+{% assign card = include.item %}
+{% if card.image %}
+<img data-src="{{ card.image | relative_url }}" alt="{{ card.title }}" class="lazy w-100 rounded-xl-top showcase-cover" src="{{ '/assets/images/empty_300x200.png' | relative_url }}">
+{% else %}
+<div class="showcase-banner rounded-xl-top" style="background: {{ card.color | default: 'linear-gradient(135deg, #334155, #0f172a)' }};">
+    <i class="{{ card.icon | default: 'fas fa-cube' }}"></i>
+</div>
+{% endif %}
+<div class="p-4">
+    <h5 class="card-title mb-1">{{ card.title }}</h5>
+    {% if card.subtitle %}<p class="small text-muted mb-2">{{ card.subtitle }}</p>{% endif %}
+    {% if card.description %}
+    {%- assign desc_words = card.description | strip_html | number_of_words -%}
+    <p class="card-text small mb-3 pub-abstract">
+        {%- if desc_words > 16 -%}
+        <span class="abstract-short">{{ card.description | strip_html | truncatewords: 16, '…' }}</span>
+        <span class="abstract-full d-none">{{ card.description }}</span>
+        <a href="#" class="abstract-toggle no-break">Read more</a>
+        {%- else -%}
+        {{ card.description }}
+        {%- endif -%}
+    </p>
+    {% endif %}
+    {% if card.skills %}
+    <div class="showcase-skills">
+        {% for skill in card.skills %}<span class="badge badge-pill skill-badge">{{ skill }}</span>{% endfor %}
+    </div>
+    {% endif %}
+    {% if card.link %}<a class="small d-inline-block mt-2" target="_blank" href="{{ card.link }}"><i class="fas fa-external-link-alt"></i> {{ card.link_text | default: 'Learn more' }}</a>{% endif %}
+</div>
