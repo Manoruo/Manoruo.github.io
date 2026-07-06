@@ -39,4 +39,14 @@ $(function () {
     $(".lazy").on("load", function () {
         $grid.masonry('layout');
     });
+
+    // Expand/collapse truncated publication abstracts via the "Read more" link.
+    $(document).on('click', '.abstract-toggle', function (e) {
+        e.preventDefault();
+        var $p = $(this).closest('.pub-abstract');
+        var willExpand = $p.find('.abstract-full').hasClass('d-none');
+        $p.find('.abstract-full').toggleClass('d-none', !willExpand);
+        $p.find('.abstract-short').toggleClass('d-none', willExpand);
+        $(this).text(willExpand ? 'Read less' : 'Read more');
+    });
 })
