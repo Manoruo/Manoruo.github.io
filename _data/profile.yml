@@ -44,10 +44,9 @@ education:
   date: Aug. 2020 - Dec. 2023
 
 # experience:
-# - name: Peking University
-#   logo: /assets/images/badges/PKU_red.png
-#   position: Research Intern
-#   date: Sep. 2019 - Jul. 2021
+# - name: Company / Lab
+#   position: Your Role
+#   date: Month Year - Month Year
 
 awards:
 - name: GEM Fellow
