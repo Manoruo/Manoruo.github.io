@@ -5,6 +5,7 @@ selected:       true
 pub:            "arXiv preprint"
 pub_last:       ' <span class="badge badge-pill badge-publication badge-info">Preprint</span>'
 pub_date:       "2026"
+cover:          /assets/images/covers/glory-shot.jpg
 
 abstract: >-
   We learn a control policy that intercepts an intruder using only 3D directional unit vectors from a passive
