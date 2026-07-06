@@ -33,16 +33,14 @@ portrait_url: /assets/images/photos/portrait.jpeg
 portrait_caption: # Link the photographer when you can.
 
 education:
-- name: Carengie Mellon University
-  color: "#A31F34"
-  position: Robotics Institute <br/>
-    Ph.D. Student
+- name: Carnegie Mellon University
+  color: "#C41230"
+  position: Ph.D. Student, Robotics
   date: Aug. 2024 - present
 
 - name: University of Maryland, Baltimore County
   color: "#FFC72C"
-  position: Computer Science <br/>
-    Bachelor of Science
+  position: B.S., Computer Science
   date: Aug. 2020 - Dec. 2023
 
 # experience:
