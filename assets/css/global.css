@@ -150,6 +150,51 @@ html[data-theme="dark"] .skill-badge {
     color: #cbd5e1;
 }
 
+/* Reactive showcase cards: grow slightly on hover; open an expanded modal on click. */
+.showcase-card {
+    position: relative;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.showcase-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.18) !important;
+    z-index: 2;
+}
+.showcase-card-inner {
+    cursor: pointer;
+    outline: none;
+}
+
+/* Showcase expanded modal. */
+.showcase-modal-cover {
+    max-height: 340px;
+    object-fit: cover;
+}
+.showcase-modal-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.9rem;
+    z-index: 3;
+    width: 2rem;
+    height: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    opacity: 1;
+    text-shadow: none;
+}
+.showcase-gallery-img {
+    height: 120px;
+    object-fit: cover;
+}
+html[data-theme="dark"] .modal-content {
+    background-color: #1e2227;
+    color: #e4e6eb;
+}
+html[data-theme="dark"] .showcase-modal-close {
+    background: rgba(30, 34, 39, 0.9);
+    color: #e4e6eb;
+}
+
 /* Carousel "fill" mode: stretches to fill its card so it matches the height of
    a neighboring card (e.g. the Welcome card in the showcase intro row). */
 .carousel-fill,

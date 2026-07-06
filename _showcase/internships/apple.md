@@ -16,5 +16,9 @@ skills:
   - Video Processing
   - Multithreading
   - Image Classification
+images:                                # up to 3 extra images shown in the expanded modal
+  - /assets/images/covers/cover1.jpg   # DUMMY
+  - /assets/images/covers/cover2.jpg   # DUMMY
+  - /assets/images/covers/cover3.jpg   # DUMMY
 ---
 {% include widgets/showcase_card.html item=page %}

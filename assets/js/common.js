@@ -40,7 +40,7 @@ $(function () {
         $grid.masonry('layout');
     });
 
-    // Expand/collapse truncated publication abstracts via the "Read more" link.
+    // Expand/collapse truncated publication abstracts and showcase descriptions.
     $(document).on('click', '.abstract-toggle', function (e) {
         e.preventDefault();
         var $p = $(this).closest('.pub-abstract');
@@ -48,5 +48,7 @@ $(function () {
         $p.find('.abstract-full').toggleClass('d-none', !willExpand);
         $p.find('.abstract-short').toggleClass('d-none', willExpand);
         $(this).text(willExpand ? 'Read less' : 'Read more');
+        // Expanding changes card height — re-flow the masonry grid (showcase page).
+        $grid.masonry('layout');
     });
 })

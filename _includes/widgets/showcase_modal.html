@@ -1,0 +1,45 @@
+{%- comment -%}
+Expanded modal for a showcase card. Rendered once per card at the bottom of the
+showcase page (outside the grid, so card hover-transforms don't break it).
+Triggered by the matching data-target on widgets/showcase_card.html.
+{%- endcomment -%}
+{% assign card = include.item %}
+<div class="modal fade" id="sc-{{ card.id | slugify }}" tabindex="-1" aria-labelledby="sc-{{ card.id | slugify }}-label" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 rounded-xl overflow-hidden">
+            {% if card.image %}
+            <img src="{{ card.image | relative_url }}" alt="{{ card.title }}" class="w-100 showcase-modal-cover">
+            {% else %}
+            <div class="showcase-banner" style="background: {{ card.color | default: 'linear-gradient(135deg, #334155, #0f172a)' }};">
+                <i class="{{ card.icon | default: 'fas fa-cube' }}"></i>
+            </div>
+            {% endif %}
+            <button type="button" class="close showcase-modal-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <div class="modal-body p-4">
+                <h4 class="mb-1" id="sc-{{ card.id | slugify }}-label">{{ card.title }}</h4>
+                {% if card.subtitle %}<p class="text-muted mb-3">{{ card.subtitle }}</p>{% endif %}
+                {% if card.description %}<p class="mb-3">{{ card.description }}</p>{% endif %}
+                {% if card.skills %}
+                <div class="showcase-skills mb-3">
+                    {% for skill in card.skills %}<span class="badge badge-pill skill-badge">{{ skill }}</span>{% endfor %}
+                </div>
+                {% endif %}
+                {% if card.links or card.link %}
+                <div class="mb-3">
+                    {% for l in card.links %}<a class="mr-3 no-break" target="_blank" href="{{ l[1] }}"><i class="fas fa-external-link-alt"></i> {{ l[0] }}</a>{% endfor %}
+                    {% if card.link %}<a class="mr-3 no-break" target="_blank" href="{{ card.link }}"><i class="fas fa-external-link-alt"></i> {{ card.link_text | default: 'Link' }}</a>{% endif %}
+                </div>
+                {% endif %}
+                {% if card.images %}
+                <div class="row no-gutters showcase-gallery">
+                    {% for img in card.images %}
+                    <div class="col-4 p-1">
+                        <img src="{{ img | relative_url }}" alt="{{ card.title }}" class="w-100 rounded showcase-gallery-img">
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

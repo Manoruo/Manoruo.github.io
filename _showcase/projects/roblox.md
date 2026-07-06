@@ -1,6 +1,6 @@
 ---
 show: true
-group: Personal Projects
+group: Projects
 width: 4
 date: 2021-09-01 00:00:00 -0400
 title: Roblox Game Development
@@ -17,5 +17,9 @@ skills:
   - 3D Modeling
   - OOP
   - Physics Engine
+images:                                # up to 3 extra images shown in the expanded modal
+  - /assets/images/covers/cover1.jpg   # DUMMY
+  - /assets/images/covers/cover2.jpg   # DUMMY
+  - /assets/images/covers/cover3.jpg   # DUMMY
 ---
 {% include widgets/showcase_card.html item=page %}

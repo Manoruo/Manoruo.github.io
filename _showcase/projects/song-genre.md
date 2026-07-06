@@ -1,6 +1,6 @@
 ---
 show: true
-group: Course Projects
+group: Projects
 width: 4
 date: 2023-10-01 00:00:00 -0400
 title: Song Genre Prediction
