@@ -1,9 +1,10 @@
 ---
 title:          "Automatic detection of cognitive events using machine learning and understanding models' interpretations of human cognition"
 date:           2025-08-20 00:01:00 -0400
-selected:       true
+selected:       false
 pub:            "Scientific Reports"
 pub_date:       "2025"
+cover:          /assets/images/covers/pupil-ml.svg
 
 abstract: >-
   We train machine learning models on task-evoked pupillary response (pupil diameter and gaze position) to

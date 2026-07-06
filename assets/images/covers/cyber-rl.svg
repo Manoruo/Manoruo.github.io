@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="Two-player reinforcement learning: attacker versus defender over a knowledge graph">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1120"/>
+      <stop offset="1" stop-color="#101a30"/>
+    </linearGradient>
+    <radialGradient id="glowRed" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f8717166"/>
+      <stop offset="1" stop-color="#f8717100"/>
+    </radialGradient>
+    <radialGradient id="glowBlue" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#38bdf866"/>
+      <stop offset="1" stop-color="#38bdf800"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="600" height="600" fill="url(#bg)"/>
+
+  <!-- faint dot grid -->
+  <g fill="#ffffff" opacity="0.05">
+    <g>
+      <circle cx="70" cy="70" r="1.7"/><circle cx="160" cy="70" r="1.7"/><circle cx="250" cy="70" r="1.7"/><circle cx="350" cy="70" r="1.7"/><circle cx="440" cy="70" r="1.7"/><circle cx="530" cy="70" r="1.7"/>
+      <circle cx="70" cy="160" r="1.7"/><circle cx="160" cy="160" r="1.7"/><circle cx="250" cy="160" r="1.7"/><circle cx="350" cy="160" r="1.7"/><circle cx="440" cy="160" r="1.7"/><circle cx="530" cy="160" r="1.7"/>
+      <circle cx="70" cy="250" r="1.7"/><circle cx="160" cy="250" r="1.7"/><circle cx="250" cy="250" r="1.7"/><circle cx="350" cy="250" r="1.7"/><circle cx="440" cy="250" r="1.7"/><circle cx="530" cy="250" r="1.7"/>
+      <circle cx="70" cy="350" r="1.7"/><circle cx="160" cy="350" r="1.7"/><circle cx="250" cy="350" r="1.7"/><circle cx="350" cy="350" r="1.7"/><circle cx="440" cy="350" r="1.7"/><circle cx="530" cy="350" r="1.7"/>
+      <circle cx="70" cy="440" r="1.7"/><circle cx="160" cy="440" r="1.7"/><circle cx="250" cy="440" r="1.7"/><circle cx="350" cy="440" r="1.7"/><circle cx="440" cy="440" r="1.7"/><circle cx="530" cy="440" r="1.7"/>
+      <circle cx="70" cy="530" r="1.7"/><circle cx="160" cy="530" r="1.7"/><circle cx="250" cy="530" r="1.7"/><circle cx="350" cy="530" r="1.7"/><circle cx="440" cy="530" r="1.7"/><circle cx="530" cy="530" r="1.7"/>
+    </g>
+  </g>
+
+  <!-- glows behind the two agents -->
+  <circle cx="160" cy="300" r="165" fill="url(#glowRed)"/>
+  <circle cx="440" cy="300" r="165" fill="url(#glowBlue)"/>
+
+  <!-- knowledge-graph edges -->
+  <g stroke-width="1.8" fill="none">
+    <!-- attacker (red) -->
+    <path d="M160 300 L85 180"  stroke="#f87171" opacity="0.5"/>
+    <path d="M160 300 L70 320"  stroke="#f87171" opacity="0.5"/>
+    <path d="M160 300 L120 450" stroke="#f87171" opacity="0.5"/>
+    <path d="M160 300 L235 210" stroke="#f87171" opacity="0.5"/>
+    <path d="M160 300 L200 430" stroke="#f87171" opacity="0.5"/>
+    <!-- defender (blue) -->
+    <path d="M440 300 L515 180" stroke="#38bdf8" opacity="0.5"/>
+    <path d="M440 300 L530 320" stroke="#38bdf8" opacity="0.5"/>
+    <path d="M440 300 L480 450" stroke="#38bdf8" opacity="0.5"/>
+    <path d="M440 300 L365 210" stroke="#38bdf8" opacity="0.5"/>
+    <path d="M440 300 L400 430" stroke="#38bdf8" opacity="0.5"/>
+    <!-- adversarial link -->
+    <path d="M160 300 L440 300" stroke="#94a3b8" stroke-dasharray="7 8" opacity="0.7"/>
+  </g>
+
+  <!-- satellite knowledge nodes -->
+  <g>
+    <circle cx="85"  cy="180" r="8" fill="#fca5a5"/>
+    <circle cx="70"  cy="320" r="7" fill="#fca5a5"/>
+    <circle cx="120" cy="450" r="7" fill="#fca5a5"/>
+    <circle cx="235" cy="210" r="7" fill="#fca5a5"/>
+    <circle cx="200" cy="430" r="6" fill="#fca5a5"/>
+    <circle cx="515" cy="180" r="8" fill="#7dd3fc"/>
+    <circle cx="530" cy="320" r="7" fill="#7dd3fc"/>
+    <circle cx="480" cy="450" r="7" fill="#7dd3fc"/>
+    <circle cx="365" cy="210" r="7" fill="#7dd3fc"/>
+    <circle cx="400" cy="430" r="6" fill="#7dd3fc"/>
+  </g>
+
+  <!-- attacker agent -->
+  <circle cx="160" cy="300" r="42" fill="#7f1d1d" stroke="#f87171" stroke-width="3.4"/>
+  <path d="M160 278 l20 11 v17 c0 13 -10 22 -20 26 c-10 -4 -20 -13 -20 -26 v-17 z"
+        fill="none" stroke="#fecaca" stroke-width="2.8" stroke-linejoin="round"/>
+  <path d="M151 300 l6 7 l12 -14" fill="none" stroke="#fecaca" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- defender agent -->
+  <circle cx="440" cy="300" r="42" fill="#0c4a6e" stroke="#38bdf8" stroke-width="3.4"/>
+  <path d="M440 278 l20 11 v17 c0 13 -10 22 -20 26 c-10 -4 -20 -13 -20 -26 v-17 z"
+        fill="none" stroke="#bae6fd" stroke-width="2.8" stroke-linejoin="round"/>
+  <path d="M431 300 l6 7 l12 -14" fill="none" stroke="#bae6fd" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
