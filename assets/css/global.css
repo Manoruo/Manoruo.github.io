@@ -120,6 +120,27 @@ div.lazy {
     font-family: Source Code Pro, monospace;
 }
 
+/* Carousel "fill" mode: stretches to fill its card so it matches the height of
+   a neighboring card (e.g. the Welcome card in the showcase intro row). */
+.carousel-fill,
+.carousel-fill .carousel,
+.carousel-fill .carousel-inner,
+.carousel-fill .carousel-item,
+.carousel-fill .carousel-item .lazy {
+    height: 100%;
+}
+.carousel-fill .carousel-item > a {
+    display: block;
+    height: 100%;
+}
+/* When columns stack on small screens, percentage heights collapse — give the
+   carousel a sensible fixed fallback height there. */
+@media (max-width: 767.98px) {
+    .carousel-fill .carousel-inner {
+        height: 300px;
+    }
+}
+
 /* Cursor affordance for the clickable time-of-day / dark-mode toggle. */
 .time-of-day {
     cursor: pointer;

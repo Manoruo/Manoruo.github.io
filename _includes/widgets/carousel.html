@@ -1,15 +1,15 @@
-<div>
-    <div id="{{ include.id | slugify }}" class="carousel slide" data-ride="carousel">
+<div class="{% if include.fill %}carousel-fill h-100{% endif %}">
+    <div id="{{ include.id | slugify }}" class="carousel slide h-100" data-ride="carousel">
         <ol class="carousel-indicators">
             {% for item in include.images %}
             <li data-target="#{{ include.id | slugify }}" data-slide-to="{{ forloop.index0 }}" {% if forloop.index == 1 %}class="active"{% endif %}></li>
             {% endfor %}
         </ol>
-        <div class="carousel-inner" style="height: {{ include.height }};">
+        <div class="carousel-inner"{% unless include.fill %} style="height: {{ include.height }};"{% endunless %}>
             {% for item in include.images %}
             <div class="carousel-item {% if forloop.index == 1 %}active{% endif %}">
                 {% if item.link %}<a href="{{ item.link }}" target="_blank">{% endif %}
-                <div class="lazy always-load d-block rounded-xl" data-src="{{ item.src | relative_url }}" style="height: {{ include.height }};">
+                <div class="lazy always-load d-block rounded-xl" data-src="{{ item.src | relative_url }}"{% unless include.fill %} style="height: {{ include.height }};"{% endunless %}>
                 </div>
                 <div class="carousel-caption d-none d-md-block">
                     <h5>{{ item.title }}</h5>
