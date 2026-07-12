@@ -1,6 +1,5 @@
 ---
 title: >-
-    Started my Ph.D. at Carnegie Mellon University, joining the
-    <a href="https://rislab.org/" target="_blank">RisLab</a> under Dr. Wennie Tabib
+    Started my Ph.D. in the Robotics Institute at Carnegie Mellon University!
 date: 2024-08-26 09:00:00 -0400
 ---
