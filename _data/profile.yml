@@ -23,9 +23,17 @@ linkedin: michael-anoruo-358b57257
 short_bio_text_justify: false
 short_bio: >-
   <p>
-    I am a third year PhD student at Carengnie Mellon University (CMU) working at the intersection of Artifical Intelligence
-    and Robotics. I am interested in applying AI and machine learning algorithms to enable autonomous vehicles with the capability 
-    of performing more complex tasks. I work  <a href="https://rislab.org/">Rislab</a>  under Dr. Wennie Tabib.
+      I am a third-year Ph.D. student in the Robotics Institute at Carnegie Mellon University (CMU), 
+      advised by Dr. Wennie Tabib in the 
+      <a href="https://rislab.org/" target="_blank" rel="noopener noreferrer">Resilient Intelligent Systems Lab (RIS Lab)</a>. 
+  </p>
+  <p>
+      My research lies at the intersection of Artificial Intelligence and Robotics, specifically 
+      focusing on developing robust autonomous vehicles capable of navigating dynamic environments. 
+      As robots are deployed in increasingly complex scenarios to perform challenging tasks, we 
+      require data and algorithms that utilize that data efficiently to facilitate their success. 
+      To this end, my research investigates how tools like reinforcement learning and differentiable 
+      simulation can enable efficient robot learning, with a primary focus on aerial systems.
   </p>
 
 
