@@ -7,9 +7,10 @@ container_class: container-xl
 # date-grouped galleries above). A card joins a section when its `group` field
 # matches the section name exactly. Reorder / add sections by editing this list.
 sections:
-  - Teaching
-  - Internships
+  - PhD
+  - Other Experiences
   - Projects
+  - Teaching
 ---
 
 {% assign cards_by_group = site.showcase | sort: "date" | reverse | where: "show", true | group_by_exp: "item", "item.group" %}
@@ -58,7 +59,14 @@ sections:
 {% for section in page.sections %}
 {% assign cards = site.showcase | where: "show", true | where: "group", section | sort: "date" | reverse %}
 {% if cards.size > 0 %}
-<h1>{{ section }}</h1>
+{% case section %}
+  {% when 'PhD' %}{% assign section_icon = 'fas fa-flask' %}
+  {% when 'Other Experiences' %}{% assign section_icon = 'fas fa-briefcase' %}
+  {% when 'Projects' %}{% assign section_icon = 'fas fa-code' %}
+  {% when 'Teaching' %}{% assign section_icon = 'fas fa-chalkboard-teacher' %}
+  {% else %}{% assign section_icon = 'fas fa-star' %}
+{% endcase %}
+<h1 class="showcase-section-heading"><i class="{{ section_icon }}"></i>{{ section }}</h1>
 <div class="row grid mb-4">
     <div class="grid-sizer col-1"></div>
     {% for item in cards %}
@@ -73,8 +81,8 @@ sections:
         {%- assign width_xs = item.width | times: 2 | at_most: 12 -%}
     {%- endif -%}
     <div class="p-2 grid-item col-md-{{ item.width | at_most: 12 }} col-sm-{{ width_sm }} col-{{ width_xs }}">
-        <div class="{% if item.class != null %}{{ item.class }}{% else %}card border-0 shadow-sm bg-white{% endif %}{% if item.title %} showcase-card{% endif %}">
-            {{ item.content }}
+        <div class="{% if item.class != null %}{{ item.class }}{% else %}card border-0 shadow-sm bg-white{% endif %} showcase-item{% if item.title %} showcase-card{% endif %}">
+            {% if item.title %}{% include widgets/showcase_card.html item=item %}{% else %}{{ item.content }}{% endif %}
         </div>
     </div>
     {% endfor %}

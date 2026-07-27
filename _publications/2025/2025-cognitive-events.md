@@ -4,7 +4,7 @@ date:           2025-08-20 00:01:00 -0400
 selected:       false
 pub:            "Scientific Reports"
 pub_date:       "2025"
-cover:          /assets/images/covers/pupil-ml.svg
+cover:          /assets/images/covers/brooks_lab.png
 
 abstract: >-
   We train machine learning models on task-evoked pupillary response (pupil diameter and gaze position) to

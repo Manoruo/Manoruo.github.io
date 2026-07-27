@@ -23,5 +23,4 @@ authors:
   - Wennie Tabib
 links:
   arXiv: https://arxiv.org/abs/2607.02472
-  PDF: https://arxiv.org/pdf/2607.02472
 ---

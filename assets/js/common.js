@@ -51,4 +51,21 @@ $(function () {
         // Expanding changes card height — re-flow the masonry grid (showcase page).
         $grid.masonry('layout');
     });
+
+    // Click a publication card to open its expanded modal (but let links behave normally).
+    $(document).on('click', '.pub-card', function (e) {
+        if ($(e.target).closest('a, button').length) return;
+        var target = $(this).data('pub-modal');
+        if (target) $(target).modal('show');
+    });
+
+    // Copy the BibTeX entry from a publication modal.
+    $(document).on('click', '.bibtex-copy', function () {
+        var $btn = $(this);
+        var text = $btn.closest('.bibtex-block').find('.bibtex-text').text();
+        navigator.clipboard.writeText(text).then(function () {
+            $btn.text('Copied!');
+            setTimeout(function () { $btn.text('Copy'); }, 1500);
+        });
+    });
 })

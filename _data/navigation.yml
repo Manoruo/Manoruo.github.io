@@ -12,5 +12,5 @@ pages:
 - name: Showcase
   url: /showcase
 - name: Resume
-  url: /assets/docs/resume.pdf
-  target: _blank   # opens the PDF in a new tab
+  url: /resume
+  target: _blank   # opens the embedded PDF viewer in a new tab

@@ -3,6 +3,11 @@ body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     padding-top: 5.0rem;
+    /* Sticky footer: fill at least the viewport so the footer sits at the
+       bottom even when a page has little content. */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -150,10 +155,111 @@ html[data-theme="dark"] .skill-badge {
     color: #cbd5e1;
 }
 
-/* Reactive showcase cards: grow slightly on hover; open an expanded modal on click. */
+/* Publications page: dense academic listing (Google Scholar / faculty page style). */
+.pub-year-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 2rem;
+    margin-bottom: 0.4rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid #d1d5db;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #374151;
+}
+.pub-year-count {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.pub-year-block {
+    /* no border/background — the list itself is the content */
+}
+html[data-theme="dark"] .pub-year-heading {
+    color: #d1d5db;
+    border-bottom-color: #303541;
+}
+html[data-theme="dark"] .pub-year-count { color: #6b7280; }
+
+/* Showcase section headings — icon + hairline underline, spaced above. */
+.showcase-section-heading {
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 2px solid #e5e7eb;
+    font-size: 1.65rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.showcase-section-heading i {
+    color: #6366f1;
+    font-size: 1.1rem;
+}
+html[data-theme="dark"] .showcase-section-heading {
+    border-bottom-color: #303541;
+}
+
+/* Cover hover polish: subtle zoom + brightness lift. */
+.showcase-card .showcase-cover {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+.showcase-card:hover .showcase-cover {
+    transform: scale(1.03);
+    filter: brightness(1.05);
+}
+
+/* Fixed "Highlights" badge overlaid on the intro carousel — centered above the
+   pagination indicators at the bottom of the carousel. */
+.carousel-highlight-badge {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    padding: 0.25rem 0.9rem;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+/* Reactive showcase cards: grow slightly on hover; open an expanded modal on click.
+   Height is content-driven — cards without descriptions (e.g. teaching) stay
+   compact while structured cards grow to fit their skill badges. */
 .showcase-card {
     position: relative;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    isolation: isolate;
+}
+.showcase-card > .showcase-card-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.showcase-card > .showcase-card-inner > .p-4 {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+/* On the card preview, clip skill badges to a single row — overflow is revealed
+   in the expanded modal. */
+.showcase-card .showcase-skills {
+    max-height: 1.7em;
+    overflow: hidden;
 }
 .showcase-card:hover {
     transform: scale(1.02);
@@ -193,6 +299,187 @@ html[data-theme="dark"] .modal-content {
 html[data-theme="dark"] .showcase-modal-close {
     background: rgba(30, 34, 39, 0.9);
     color: #e4e6eb;
+}
+
+/* Publications: professional card with fixed height so the thumbnail can never
+   grow taller than the card body. */
+.pub-card {
+    cursor: pointer;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.35rem;
+    overflow: hidden;
+    height: 140px;
+    isolation: isolate;
+    transition: border-color 0.12s ease;
+}
+.pub-card > .d-flex { height: 100%; }
+.pub-card:hover {
+    border-color: #9ca3af;
+}
+html[data-theme="dark"] .pub-card {
+    background: #1e2227;
+    border-color: #303541;
+}
+html[data-theme="dark"] .pub-card:hover {
+    border-color: #4b5563;
+}
+
+/* Fixed-size thumbnail — pinned to the card's exact height (via flex stretch)
+   and clipped inside its wrap. Absolute positioning guarantees the image can't
+   push the row taller no matter what its natural dimensions are. */
+.pub-thumb-wrap {
+    position: relative;
+    width: 140px;
+    height: 100%;
+    background: #f3f4f6;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+.pub-thumb {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    object-fit: cover;
+    display: block;
+}
+.pub-thumb-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    font-size: 1.75rem;
+}
+.pub-body {
+    overflow: hidden;
+}
+html[data-theme="dark"] .pub-thumb-wrap { background: #262b33; }
+html[data-theme="dark"] .pub-thumb-fallback { color: #6b7280; }
+
+.min-width-0 { min-width: 0; }
+
+.pub-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #0f172a;
+    letter-spacing: -0.005em;
+}
+html[data-theme="dark"] .pub-title { color: #f1f5f9; }
+.pub-authors {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #374151;
+}
+.pub-authors .text-body {
+    color: inherit !important;
+}
+html[data-theme="dark"] .pub-authors,
+html[data-theme="dark"] .pub-authors .text-body {
+    color: #cbd5e1 !important;
+}
+.pub-venue {
+    font-size: 0.85rem;
+    color: #64748b;
+    letter-spacing: 0.005em;
+}
+html[data-theme="dark"] .pub-venue { color: #94a3b8; }
+.pub-links {
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+}
+.pub-links a {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    padding: 0.1rem 0.4rem;
+    border: 1px solid #e0e7ff;
+    border-radius: 0.25rem;
+    background: #f5f3ff;
+    transition: background 0.12s ease, border-color 0.12s ease;
+    display: inline-block;
+    margin-right: 0.35rem;
+}
+.pub-links a:hover {
+    background: #ede9fe;
+    border-color: #c7d2fe;
+    text-decoration: none;
+}
+html[data-theme="dark"] .pub-links a {
+    color: #a5b4fc;
+    background: rgba(99, 102, 241, 0.12);
+    border-color: rgba(99, 102, 241, 0.25);
+}
+html[data-theme="dark"] .pub-links a:hover {
+    background: rgba(99, 102, 241, 0.22);
+    border-color: rgba(99, 102, 241, 0.4);
+}
+.pub-link-sep { display: none; }
+
+/* Modal + carousel author names need the same dark-theme fix. */
+html[data-theme="dark"] .text-body { color: #d1d5db !important; }
+/* Publication links as subtle pill buttons for a cleaner, uniform look. */
+.abstract-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.5rem !important;
+}
+.abstract-links a {
+    display: inline-block;
+    padding: 0.02rem 0.6rem;
+    border: 1px solid #d7dde5;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: #475569;
+    text-decoration: none;
+    transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+.abstract-links a:hover {
+    background-color: #f5a623;
+    border-color: #f5a623;
+    color: #fff;
+}
+html[data-theme="dark"] .abstract-links a {
+    border-color: #3a414b;
+    color: #cbd5e1;
+}
+html[data-theme="dark"] .abstract-links a:hover {
+    background-color: #f5a623;
+    border-color: #f5a623;
+    color: #1e2227;
+}
+
+/* BibTeX block in the publication modal. */
+.bibtex-text {
+    background-color: #f6f8fa;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+html[data-theme="dark"] .bibtex-text {
+    background-color: #0f1216;
+    color: #cbd5e1;
+}
+
+/* News rows: subtle highlight on hover. */
+.news-item {
+    border-radius: 0.4rem;
+    transition: background-color 0.15s ease;
+}
+.news-item:hover {
+    background-color: #f4f6f9;
+}
+html[data-theme="dark"] .news-item:hover {
+    background-color: #232830;
 }
 
 /* Carousel "fill" mode: stretches to fill its card so it matches the height of

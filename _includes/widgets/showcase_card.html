@@ -5,16 +5,24 @@ Front-matter fields:
     title, subtitle, description   — text
     icon                           — Font Awesome class for the banner (e.g. "fas fa-eye")
     color                          — CSS background for the banner (e.g. a linear-gradient)
-    image                          — optional cover image URL; overrides the icon banner
     skills                         — list of tool/skill tags rendered as badges
     links                          — optional map of {label: url} shown in the modal
-    images                         — optional list of up to 3 extra images shown in the modal
-The card is clickable and opens an expanded modal rendered by widgets/showcase_modal.html.
+
+Images: drop files into  assets/images/showcase/<slug>/  where <slug> is the
+card's filename without extension (e.g. research/rislab.md → showcase/rislab/).
+Files are picked up in alphabetical order — first is the cover, the rest fill
+the modal gallery. No frontmatter needed. If the folder is empty or missing,
+the card falls back to the icon+gradient banner.
 {%- endcomment -%}
 {% assign card = include.item %}
+{% assign slug = card.id | split: '/' | last %}
+{% assign folder = '/assets/images/showcase/' | append: slug | append: '/' %}
+{% assign card_images = site.static_files | where_exp: 'f', 'f.path contains folder' | sort: 'path' %}
+{% assign named_cover = card_images | where_exp: 'f', 'f.basename == "cover"' | first %}
+{% if named_cover %}{% assign cover = named_cover %}{% else %}{% assign cover = card_images | first %}{% endif %}
 <div class="showcase-card-inner" data-toggle="modal" data-target="#sc-{{ card.id | slugify }}" role="button" tabindex="0">
-    {% if card.image %}
-    <img data-src="{{ card.image | relative_url }}" alt="{{ card.title }}" class="lazy w-100 rounded-xl-top showcase-cover" src="{{ '/assets/images/empty_300x200.png' | relative_url }}">
+    {% if cover %}
+    <img data-src="{{ cover.path | relative_url }}" alt="{{ card.title }}" class="lazy w-100 rounded-xl-top showcase-cover" src="{{ '/assets/images/empty_300x200.png' | relative_url }}"{% if card.cover_position or card.cover_fit %} style="{% if card.cover_fit %}object-fit: {{ card.cover_fit }};{% endif %}{% if card.cover_position %}object-position: {{ card.cover_position }};{% endif %}{% if card.cover_fit == 'contain' %}background: #ffffff;{% endif %}"{% endif %}>
     {% else %}
     <div class="showcase-banner rounded-xl-top" style="background: {{ card.color | default: 'linear-gradient(135deg, #334155, #0f172a)' }};">
         <i class="{{ card.icon | default: 'fas fa-cube' }}"></i>
@@ -23,7 +31,6 @@ The card is clickable and opens an expanded modal rendered by widgets/showcase_m
     <div class="p-4">
         <h5 class="card-title mb-1">{{ card.title }}</h5>
         {% if card.subtitle %}<p class="small text-muted mb-2">{{ card.subtitle }}</p>{% endif %}
-        {% if card.description %}<p class="card-text small text-muted mb-3">{{ card.description | strip_html | truncatewords: 16, '…' }}</p>{% endif %}
         {% if card.skills %}
         <div class="showcase-skills">
             {% for skill in card.skills %}<span class="badge badge-pill skill-badge">{{ skill }}</span>{% endfor %}

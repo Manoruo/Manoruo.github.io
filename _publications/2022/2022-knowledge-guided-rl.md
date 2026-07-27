@@ -5,7 +5,7 @@ selected:       false
 pub:            "IEEE International Conference on Machine Learning and Applications (ICMLA)"
 pub_date:       "2022"
 semantic_scholar_id: fa2f18911745e5e68d7d61d01c386d8e3d1565ae  # citation count
-cover:          /assets/images/covers/cyber-rl.svg
+cover:          /assets/images/covers/cyberbattle_sim.png
 
 abstract: >-
   We present a two-player game environment in which attacker and defender agents are trained simultaneously
