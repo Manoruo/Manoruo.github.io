@@ -5,7 +5,7 @@
     <div class="d-flex align-items-stretch">
         <div class="pub-thumb-wrap flex-shrink-0">
             {%- if item.cover -%}
-            <img data-src="{{ item.cover | relative_url }}" alt="{{ item.title }}" class="lazy pub-thumb" src="{{ '/assets/images/empty_300x200.png' | relative_url }}">
+            <img src="{{ item.cover | relative_url }}" alt="{{ item.title }}" class="pub-thumb" loading="lazy">
             {%- else -%}
             <div class="pub-thumb pub-thumb-fallback"><i class="far fa-file-alt"></i></div>
             {%- endif -%}
@@ -35,8 +35,12 @@
 <div class="modal fade" id="pub-{{ pubmodal }}" tabindex="-1" aria-labelledby="pub-{{ pubmodal }}-label" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content border-0 rounded-xl overflow-hidden">
-            {% if item.video %}
-            <video autoplay loop muted playsinline preload="metadata" {% if item.cover %}poster="{{ item.cover | relative_url }}"{% endif %} class="w-100 showcase-modal-cover">
+            {% if item.youtube_id %}
+            <div class="pub-video-embed">
+                <iframe src="https://www.youtube.com/embed/{{ item.youtube_id }}" title="{{ item.title }}" frameborder="0" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            {% elsif item.video %}
+            <video controls muted playsinline preload="metadata" {% if item.cover %}poster="{{ item.cover | relative_url }}"{% endif %} class="w-100 showcase-modal-cover">
                 <source src="{{ item.video | relative_url }}" type="video/mp4">
             </video>
             {% endif %}

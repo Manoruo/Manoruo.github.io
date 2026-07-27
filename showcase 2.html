@@ -1,0 +1,97 @@
+---
+layout: default
+title : Showcase
+navbar_title: Showcase
+container_class: container-xl
+# These sections render in a fixed order at the BOTTOM of the page (after the
+# date-grouped galleries above). A card joins a section when its `group` field
+# matches the section name exactly. Reorder / add sections by editing this list.
+sections:
+  - Research
+  - Academic Projects
+  - Personal Projects
+  - Teaching
+---
+
+{% assign cards_by_group = site.showcase | sort: "date" | reverse | where: "show", true | group_by_exp: "item", "item.group" %}
+
+{% comment %} Top: original galleries, grouped by date — skip the custom sections so they don't appear twice. {% endcomment %}
+{% for group in cards_by_group %}
+{% unless page.sections contains group.name %}
+{% if group.name == nil or group.name == '' %}
+{% comment %} Intro: equal-height flex row (no masonry) so cards like the carousel match the Welcome card's height. {% endcomment %}
+<div class="row mb-4">
+    {% for item in group.items %}
+    <div class="p-2 col-md-{{ item.width | at_most: 12 }}">
+        <div class="card border-0 shadow-sm bg-white h-100 {{ item.class }}">
+            {{ item.content }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<h1>{{ group.name }}</h1>
+<div class="row grid mb-4">
+    <div class="grid-sizer col-1"></div>
+    {% for item in group.items %}
+    {% if item.width >= 6 -%}
+        {%- assign width_sm = 12 -%}
+        {%- assign width_xs = 12 -%}
+    {%- elsif item.width >= 2 -%}
+        {%- assign width_sm = 6 -%}
+        {%- assign width_xs = 6 -%}
+    {%- else -%}
+        {%- assign width_sm = item.width | times: 2 | at_most: 12 -%}
+        {%- assign width_xs = item.width | times: 2 | at_most: 12 -%}
+    {%- endif -%}
+    <div class="p-2 grid-item col-md-{{ item.width | at_most: 12 }} col-sm-{{ width_sm }} col-{{ width_xs }}">
+        <div class="{% if item.class != null %}{{ item.class }}{% else %}card border-0 shadow-sm bg-white{% endif %}{% if item.title %} showcase-card{% endif %}">
+            {{ item.content }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endunless %}
+{% endfor %}
+
+{% comment %} Bottom: custom sections in the fixed order defined above. {% endcomment %}
+{% for section in page.sections %}
+{% assign cards = site.showcase | where: "show", true | where: "group", section | sort: "date" | reverse %}
+{% if cards.size > 0 %}
+<h1>{{ section }}</h1>
+<div class="row grid mb-4">
+    <div class="grid-sizer col-1"></div>
+    {% for item in cards %}
+    {% if item.width >= 6 -%}
+        {%- assign width_sm = 12 -%}
+        {%- assign width_xs = 12 -%}
+    {%- elsif item.width >= 2 -%}
+        {%- assign width_sm = 6 -%}
+        {%- assign width_xs = 6 -%}
+    {%- else -%}
+        {%- assign width_sm = item.width | times: 2 | at_most: 12 -%}
+        {%- assign width_xs = item.width | times: 2 | at_most: 12 -%}
+    {%- endif -%}
+    <div class="p-2 grid-item col-md-{{ item.width | at_most: 12 }} col-sm-{{ width_sm }} col-{{ width_xs }}">
+        <div class="{% if item.class != null %}{{ item.class }}{% else %}card border-0 shadow-sm bg-white{% endif %} showcase-item{% if item.title %} showcase-card{% endif %}">
+            {% if item.title %}{% include widgets/showcase_card.html item=item %}{% else %}{{ item.content }}{% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endfor %}
+
+{% comment %} Expanded modals for the clickable cards — rendered here, outside the grid,
+so a card's hover transform can't break the fixed-position modal. Only cards that belong
+to a custom section (and carry a title) get a modal, so custom HTML items like the
+carousel are never included. {% endcomment %}
+{% for section in page.sections %}
+{% assign modal_cards = site.showcase | where: "show", true | where: "group", section %}
+{% for item in modal_cards %}
+{% if item.title %}
+{% include widgets/showcase_modal.html item=item %}
+{% endif %}
+{% endfor %}
+{% endfor %}

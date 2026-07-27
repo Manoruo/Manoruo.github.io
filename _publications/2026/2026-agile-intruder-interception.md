@@ -6,6 +6,7 @@ pub:            "arXiv preprint"
 pub_last:       ' <span class="badge badge-pill badge-publication badge-info">Preprint</span>'
 pub_date:       "2026"
 cover:          /assets/images/covers/glory-shot.png
+youtube_id:     qFgP6za9Ruc
 
 abstract: >-
   We learn a control policy that intercepts an intruder using only 3D directional unit vectors from a passive
@@ -23,4 +24,5 @@ authors:
   - Wennie Tabib
 links:
   arXiv: https://arxiv.org/abs/2607.02472
+  Video: https://www.youtube.com/watch?v=qFgP6za9Ruc
 ---

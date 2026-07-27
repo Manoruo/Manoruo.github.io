@@ -22,13 +22,13 @@ skills:
 <div class="row align-items-stretch">
   <div class="col-sm-6 d-flex flex-column">
     <div class="d-flex flex-column flex-grow-1 mb-3" style="min-height: 0;">
-      <video autoplay loop muted playsinline preload="metadata" poster="{{ "/assets/images/showcase/crazyflie/cover.jpg" | relative_url }}" class="w-100 rounded flex-grow-1" style="min-height: 0; object-fit: cover;">
+      <video controls muted playsinline loop preload="metadata" poster="{{ "/assets/images/showcase/crazyflie/cover.jpg" | relative_url }}" class="w-100 rounded flex-grow-1" style="min-height: 0; object-fit: cover;">
         <source src="{{ "/assets/images/showcase/crazyflie/swarm.mp4" | relative_url }}" type="video/mp4">
       </video>
       <p class="small text-muted mt-2 mb-0 text-center">Crazyswarm flight with Vicon feedback</p>
     </div>
     <div class="d-flex flex-column flex-grow-1" style="min-height: 0;">
-      <video autoplay loop muted playsinline preload="metadata" class="w-100 rounded flex-grow-1" style="min-height: 0; object-fit: cover;">
+      <video controls muted playsinline loop preload="metadata" class="w-100 rounded flex-grow-1" style="min-height: 0; object-fit: cover;">
         <source src="{{ "/assets/images/showcase/crazyflie/figure8.mp4" | relative_url }}" type="video/mp4">
       </video>
       <p class="small text-muted mt-2 mb-0 text-center">Single-drone figure-8 tracking</p>

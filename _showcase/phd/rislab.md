@@ -33,7 +33,7 @@ skills:
 <h5>Task: Agile Intruder Interception</h5>
 <div class="row align-items-center">
   <div class="col-sm-7 mt-3 mt-md-0">
-    <video autoplay loop muted playsinline preload="metadata" class="w-100 rounded">
+    <video controls muted playsinline loop preload="metadata" class="w-100 rounded">
       <source src="{{ "/assets/images/showcase/rislab/interception.mp4" | relative_url }}" type="video/mp4">
     </video>
   </div>
