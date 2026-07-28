@@ -31,7 +31,7 @@ skills:
       <video controls muted playsinline loop preload="metadata" class="w-100 rounded flex-grow-1" style="min-height: 0; object-fit: cover;">
         <source src="{{ "/assets/images/showcase/crazyflie/figure8.mp4" | relative_url }}" type="video/mp4">
       </video>
-      <p class="small text-muted mt-2 mb-0 text-center">Single-drone figure-8 tracking</p>
+      <p class="small text-muted mt-2 mb-0 text-center">Two drone figure-8 tracking</p>
     </div>
   </div>
   <div class="col-sm-6 d-flex flex-column mt-3 mt-md-0">

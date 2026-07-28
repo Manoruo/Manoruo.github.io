@@ -2,26 +2,38 @@
 {% assign pubmodal = item.id | slugify %}
 
 <div class="pub-card {% unless include.hide_bottom_border %}mb-3{% endunless %}" data-pub-modal="#pub-{{ pubmodal }}">
-    <div class="d-flex align-items-stretch">
+    <div class="d-flex align-items-start">
         <div class="pub-thumb-wrap flex-shrink-0">
             {%- if item.cover -%}
             <img src="{{ item.cover | relative_url }}" alt="{{ item.title }}" class="pub-thumb" loading="lazy">
             {%- else -%}
             <div class="pub-thumb pub-thumb-fallback"><i class="far fa-file-alt"></i></div>
             {%- endif -%}
+            {%- if item.selected -%}
+            <span class="pub-selected-badge" title="Selected work"><i class="fas fa-star"></i></span>
+            {%- endif -%}
         </div>
-        <div class="pub-body flex-grow-1 min-width-0 p-3">
+        <div class="pub-body flex-grow-1 min-width-0">
             <h5 class="pub-title mb-1">{{ item.title }}</h5>
             <p class="pub-authors mb-1">{% include widgets/author_list.html authors=item.authors %}</p>
             <p class="pub-venue mb-2"><em>{{ item.pub }}</em>{% if item.pub_date %}, {{ item.pub_date }}{% endif %}{{ item.pub_last }}</p>
             <p class="pub-links mb-0">
                 {% for link in item.links %}
+                {%- assign lname = link[0] | downcase -%}
+                {%- if lname contains 'paper' -%}{% assign licon = 'fas fa-file-alt' %}
+                {%- elsif lname contains 'arxiv' -%}{% assign licon = 'fas fa-scroll' %}
+                {%- elsif lname contains 'video' or lname contains 'youtube' -%}{% assign licon = 'fas fa-play' %}
+                {%- elsif lname contains 'code' or lname contains 'github' -%}{% assign licon = 'fab fa-github' %}
+                {%- elsif lname contains 'slide' -%}{% assign licon = 'fas fa-desktop' %}
+                {%- elsif lname contains 'poster' -%}{% assign licon = 'fas fa-image' %}
+                {%- elsif lname contains 'blog' -%}{% assign licon = 'fas fa-pen-nib' %}
+                {%- else -%}{% assign licon = 'fas fa-external-link-alt' %}
+                {%- endif -%}
                 {% if link[1].url %}
-                <a target="{{ link[1]['target'] }}" href="{{ link[1]['url'] }}" onclick="event.stopPropagation();">{{ link[0] }}</a>
+                <a target="{{ link[1]['target'] }}" href="{{ link[1]['url'] }}" onclick="event.stopPropagation();"><i class="{{ licon }}"></i>{{ link[0] }}</a>
                 {% else %}
-                <a target="_blank" href="{{ link[1] }}" onclick="event.stopPropagation();">{{ link[0] }}</a>
+                <a target="_blank" href="{{ link[1] }}" onclick="event.stopPropagation();"><i class="{{ licon }}"></i>{{ link[0] }}</a>
                 {% endif %}
-                {% unless forloop.last %}<span class="pub-link-sep">·</span>{% endunless %}
                 {% endfor %}
             </p>
         </div>

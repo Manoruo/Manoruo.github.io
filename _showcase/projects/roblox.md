@@ -39,6 +39,6 @@ skills:
 <div class="row mt-3">
   <div class="col-12">
     <img src="{{ "/assets/images/showcase/roblox/lobby.png" | relative_url }}" alt="Neon-lit game lobby" class="w-100 rounded">
-    <p class="small text-muted mt-2 mb-0 text-center">One of the event lobbies I built.</p>
+    <p class="small text-muted mt-2 mb-0 text-center">Game lobby.</p>
   </div>
 </div>

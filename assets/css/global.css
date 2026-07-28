@@ -250,13 +250,33 @@ html[data-theme="dark"] .showcase-section-heading {
     border-bottom-color: #303541;
 }
 
-/* Cover hover polish: subtle zoom + brightness lift. */
+/* Cover: subtle bottom gradient for depth, and hover zoom that stays clipped. */
 .showcase-card .showcase-cover {
-    transition: transform 0.3s ease, filter 0.3s ease;
+    transition: transform 0.35s ease, filter 0.35s ease;
 }
 .showcase-card:hover .showcase-cover {
-    transform: scale(1.03);
+    transform: scale(1.04);
     filter: brightness(1.05);
+}
+/* Gradient overlay lives below the cover — pointer-events none so clicks pass through. */
+.showcase-card-inner {
+    position: relative;
+}
+.showcase-card-inner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.18) 100%);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.showcase-card:hover .showcase-card-inner::before {
+    opacity: 1;
 }
 
 /* Fixed "Highlights" badge overlaid on the intro carousel — centered above the
@@ -307,8 +327,8 @@ html[data-theme="dark"] .showcase-section-heading {
     overflow: hidden;
 }
 .showcase-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.18) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.12) !important;
     z-index: 2;
 }
 .showcase-card-inner {
@@ -348,52 +368,68 @@ html[data-theme="dark"] .showcase-modal-close {
 
 /* Publications: professional card with fixed height so the thumbnail can never
    grow taller than the card body. */
+/* al-folio style: flat list entry, no card box — the thumbnail stands alone
+   with a gap, and the text sits beside it. Subtle rounded hover only. */
 .pub-card {
     cursor: pointer;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.35rem;
-    overflow: hidden;
-    min-height: 160px;
-    isolation: isolate;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.15s ease;
 }
-.pub-card > .d-flex { min-height: 100%; }
-/* Body content stretches so links stay pinned to the bottom of the card. */
-.pub-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-}
-.pub-body .pub-links { margin-top: auto; }
 .pub-card:hover {
-    transform: translateY(-2px);
-    border-color: #9ca3af;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
-}
-html[data-theme="dark"] .pub-card {
-    background: #1e2227;
-    border-color: #303541;
+    background-color: rgba(15, 23, 42, 0.035);
 }
 html[data-theme="dark"] .pub-card:hover {
-    border-color: #4b5563;
+    background-color: rgba(255, 255, 255, 0.045);
 }
 
 /* Fixed 140×160 thumbnail — matches card min-height so no whitespace, and the
    image is clipped inside via object-fit cover. If the body is taller than 160px
    the thumb aligns to the top and the body determines row height. */
 .pub-thumb-wrap {
-    width: 140px;
-    height: 160px;
+    position: relative;
+    width: 150px;
+    height: 150px;
     background: #f3f4f6;
     flex-shrink: 0;
     overflow: hidden;
+    border-radius: 0.5rem;
+    margin-right: 1.1rem;
+    transition: box-shadow 0.2s ease;
+}
+/* Hover: lift the thumbnail with a soft shadow. */
+.pub-card:hover .pub-thumb-wrap {
+    box-shadow: 0 0.4rem 0.9rem rgba(0, 0, 0, 0.16);
+}
+html[data-theme="dark"] .pub-card:hover .pub-thumb-wrap {
+    box-shadow: 0 0.4rem 0.9rem rgba(0, 0, 0, 0.5);
+}
+/* Selected/highlighted paper: little star in the corner of the thumbnail. */
+.pub-selected-badge {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fbbf24;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    backdrop-filter: blur(2px);
 }
 .pub-thumb {
-    width: 140px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     display: block;
+    transition: transform 0.28s ease;
+}
+/* Hover: zoom the thumbnail inside its clipped rounded frame. */
+.pub-card:hover .pub-thumb {
+    transform: scale(1.07);
 }
 .pub-thumb-fallback {
     display: flex;
@@ -401,8 +437,8 @@ html[data-theme="dark"] .pub-card:hover {
     justify-content: center;
     color: #9ca3af;
     font-size: 1.75rem;
-    width: 140px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
 }
 html[data-theme="dark"] .pub-thumb-wrap { background: #262b33; }
 html[data-theme="dark"] .pub-thumb-fallback { color: #6b7280; }
@@ -436,28 +472,37 @@ html[data-theme="dark"] .pub-authors .text-body {
 }
 html[data-theme="dark"] .pub-venue { color: #94a3b8; }
 .pub-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
     font-size: 0.82rem;
     letter-spacing: 0.02em;
 }
 .pub-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     color: #4f46e5;
     text-decoration: none;
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.72rem;
     letter-spacing: 0.08em;
-    padding: 0.1rem 0.4rem;
+    padding: 0.15rem 0.55rem;
     border: 1px solid #e0e7ff;
-    border-radius: 0.25rem;
+    border-radius: 0.3rem;
     background: #f5f3ff;
-    transition: background 0.12s ease, border-color 0.12s ease;
-    display: inline-block;
-    margin-right: 0.35rem;
+    transition: background 0.12s ease, border-color 0.12s ease, transform 0.12s ease;
+}
+.pub-links a i {
+    font-size: 0.75rem;
+    opacity: 0.85;
 }
 .pub-links a:hover {
     background: #ede9fe;
     border-color: #c7d2fe;
     text-decoration: none;
+    transform: translateY(-1px);
 }
 html[data-theme="dark"] .pub-links a {
     color: #a5b4fc;
