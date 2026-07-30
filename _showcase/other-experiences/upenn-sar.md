@@ -4,7 +4,7 @@ group: Other Experiences
 width: 4
 date: 2021-06-01 00:00:00 -0400
 title: Autonomous Surface Vehicles
-subtitle: UPenn &middot; Scalable Autonomous Robots Lab &middot; Summer 2021
+subtitle: UPenn &middot; ScalAR Lab &middot; Summer 2021
 icon: fas fa-microchip
 color: linear-gradient(135deg, #011f5b, #7a0019)
 description: >-

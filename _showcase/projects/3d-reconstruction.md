@@ -3,7 +3,7 @@ show: true
 group: Projects
 width: 4
 date: 2023-11-01 00:00:00 -0500
-title: Interactive 3D Scene Reconstruction
+title: 3D Scene Reconstruction
 subtitle: UMBC &middot; Fall 2023
 icon: fas fa-cube
 color: linear-gradient(135deg, #14b8a6, #0f766e)

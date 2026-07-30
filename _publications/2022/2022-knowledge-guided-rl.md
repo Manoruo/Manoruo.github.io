@@ -1,7 +1,7 @@
 ---
 title:          "Knowledge Guided Two-Player Reinforcement Learning for Cyber Attacks and Defenses"
 date:           2022-12-12 00:01:00 -0500
-selected:       false
+selected:       true
 pub:            "IEEE International Conference on Machine Learning and Applications (ICMLA)"
 pub_date:       "2022"
 semantic_scholar_id: fa2f18911745e5e68d7d61d01c386d8e3d1565ae  # citation count

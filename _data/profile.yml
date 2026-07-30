@@ -3,7 +3,7 @@ secondary_name: ""
 navbar_name: "Michael Anoruo"
 
 positions:
-- name: Phd Student
+- name: Ph.D. Student
 - name: Carengie Mellon University
   color: "#C41230"   # Colored rounded square in place of a logo (any CSS color / hex)
 
