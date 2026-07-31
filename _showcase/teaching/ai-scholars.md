@@ -8,16 +8,15 @@ subtitle: CMU AI Scholars &middot; Summer 2026 (Project Lead)
 icon: fas fa-brain
 color: linear-gradient(135deg, #6366f1, #312e81)
 skills:
-  - TensorFlow.js
+  - TensorFlow
   - CNN
-  - Mel-Spectrograms
-  - Web ML
+  - Audio Processing
 links:
   Live demo: https://moodwave-emotion-detector.github.io/AIS-project/
   GitHub: https://github.com/Moodwave-emotion-detector/AIS-project
 ---
 
-```html
+
 <p class="mb-3">
   Mentored a team of five students in a four-week pre-college research program, guiding them
   through the development of a speech emotion recognition system, from preparing the data and
@@ -31,4 +30,4 @@ links:
   neural network (CNN) to classify emotions, and deployed the final model for real-time,
   inference directly in the browser.
 </p>
-```
+
