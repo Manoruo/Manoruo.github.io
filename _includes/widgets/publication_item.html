@@ -5,7 +5,14 @@
     <div class="d-flex align-items-start">
         <div class="pub-thumb-wrap flex-shrink-0">
             {%- if item.cover -%}
-            <img src="{{ item.cover | relative_url }}" alt="{{ item.title }}" class="pub-thumb" loading="lazy">
+            <img
+                src="{{ item.cover | relative_url }}"
+                alt="{{ item.title }}"
+                class="pub-thumb"
+                width="150"
+                height="150"
+                loading="eager"
+                decoding="async">
             {%- else -%}
             <div class="pub-thumb pub-thumb-fallback"><i class="far fa-file-alt"></i></div>
             {%- endif -%}
@@ -49,7 +56,7 @@
         <div class="modal-content border-0 rounded-xl overflow-hidden">
             {% if item.youtube_id %}
             <div class="pub-video-embed">
-                <iframe src="https://www.youtube.com/embed/{{ item.youtube_id }}" title="{{ item.title }}" frameborder="0" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/{{ item.youtube_id }}?rel=0" title="{{ item.title }}" frameborder="0" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
             </div>
             {% elsif item.video %}
             <video controls muted playsinline preload="metadata" {% if item.cover %}poster="{{ item.cover | relative_url }}"{% endif %} class="w-100 showcase-modal-cover">

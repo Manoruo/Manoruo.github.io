@@ -28,12 +28,18 @@ short_bio: >-
       <a href="https://rislab.org/" target="_blank" rel="noopener noreferrer">Resilient Intelligent Systems Lab (RIS Lab)</a>. 
   </p>
   <p>
-      My research lies at the intersection of Artificial Intelligence and Robotics, specifically 
-      focusing on developing robust autonomous vehicles capable of navigating dynamic environments. 
-      As robots are deployed in increasingly complex scenarios to perform challenging tasks, we 
-      require data and algorithms that utilize that data efficiently to facilitate their success. 
-      To this end, my research investigates how tools like reinforcement learning and differentiable 
-      simulation can enable efficient robot learning, with a primary focus on aerial systems.
+    My research lies at the intersection of <strong>AI and robotic control</strong>,
+    focusing on building <strong>autonomous systems</strong> that can operate in complex,
+    dynamic settings. Because the world is constantly changing, robots need control
+    strategies that can adapt in real time. At the same time, the world is governed
+    by known physical laws, and we can leverage this knowledge to help robots make
+    better decisions. My work combines <strong>reinforcement learning </strong>  with
+    <strong> differentiable physics </strong> to help robots leverage both experience and
+    physical prior knowledge for adaptive, efficient, and robust control. While my
+    current research focuses on <strong>aerial systems</strong>, my long-term goal is
+    to extend these adaptive control methods across different robotic
+    platforms, enabling robots to operate safely in the real world and work
+    alongside humans to accomplish challenging tasks.
   </p>
 
 

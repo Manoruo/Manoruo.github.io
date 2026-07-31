@@ -8,9 +8,7 @@ subtitle: Personal project &middot; Winter 2023
 icon: fas fa-brain
 color: linear-gradient(135deg, #6366f1, #312e81)
 cover_fit: contain
-description: >-
-  A neural-network framework built from scratch in Python &mdash; forward pass, backprop, and
-  gradient descent implemented by hand to really understand how the pieces fit together.
+description:
 skills:
   - Python
   - NumPy
@@ -21,9 +19,14 @@ link_text: GitHub repo
 ---
 
 <p class="mb-3">
-  Built the core neural-network stack (layers, losses, optimizers, metrics) from scratch and used
-  it to train models on classic datasets &mdash; a sanity check that the math actually works
-  end-to-end.
+  To better understand how modern deep learning frameworks work under the hood,
+  I built a neural network framework from scratch in Python. Rather than relying
+  on automatic differentiation, I derived and implemented the
+  <strong>analytical gradients</strong> for each layer by hand, implementing the
+  forward and backward passes, optimization algorithms, and training loop from
+  the ground up. This project laid the groundwork for a more general
+  <strong>automatic differentiation framework</strong> that I'm currently
+  developing.
 </p>
 
 <div class="row">
@@ -42,3 +45,14 @@ link_text: GitHub repo
     </div>
   </div>
 </div>
+
+<hr>
+
+<p class="small text-muted mb-0">
+  <strong>Resources:</strong>
+  <a href="https://medium.com/data-science/math-neural-network-from-scratch-in-python-d6da9f29ce65"
+     target="_blank">
+    Omar Aflak — Neural Network from Scratch in Python
+  </a>.
+  This article was my primary reference while implementing the framework.
+</p>

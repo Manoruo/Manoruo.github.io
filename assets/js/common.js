@@ -68,4 +68,42 @@ $(function () {
             setTimeout(function () { $btn.text('Copy'); }, 1500);
         });
     });
+
+    // Pause offscreen showcase videos so only visible cards consume decode/CPU.
+    var autoplayVideos = Array.prototype.slice.call(document.querySelectorAll('video[data-autoplay-on-visible="true"]'));
+    if (autoplayVideos.length) {
+        var setPlayback = function (video, shouldPlay) {
+            if (shouldPlay) {
+                var playPromise = video.play();
+                if (playPromise && typeof playPromise.catch === 'function') {
+                    playPromise.catch(function () {
+                        // Ignore autoplay rejections; the next visibility change can retry.
+                    });
+                }
+            } else {
+                video.pause();
+            }
+        };
+
+        if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    setPlayback(entry.target, entry.isIntersecting);
+                });
+            }, {
+                root: null,
+                threshold: 0.25
+            });
+
+            autoplayVideos.forEach(function (video) {
+                video.pause();
+                observer.observe(video);
+            });
+        } else {
+            // Fallback: keep the current autoplay behavior in older browsers.
+            autoplayVideos.forEach(function (video) {
+                setPlayback(video, true);
+            });
+        }
+    }
 })

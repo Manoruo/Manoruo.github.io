@@ -11,15 +11,15 @@ date: 2024-01-12 00:01:00 +0800
         This page is my <code>interactive portfolio</code> &mdash; a living documentation of what I've been working on and what I'm interested in.
     </p>
     <p>
-        You'll find my current PhD research in <code>robotics</code> and <code>machine learning</code>, side <code>projects</code> I've built along the way, and glimpses of the <code>experiences</code> that got me here.
+        You'll find my current Ph.D. research in <code>robotics</code> and <code>machine learning</code>, side <code>projects</code> I've built along the way, and glimpses of some of my <code>experiences</code>.
     </p>
     <p>
         Everything here is organized into a few sections:
     </p>
     <ul>
         <li><code>PhD</code> &mdash; the research directions I'm actively pursuing at CMU's RISLab.</li>
-        <li><code>Other Experiences</code> &mdash; earlier research and internships that shaped my path.</li>
-        <li><code>Projects</code> &mdash; academic and personal builds outside the lab.</li>
+        <li><code>Other Experiences</code> &mdash; earlier research and internships opportunities.</li>
+        <li><code>Projects</code> &mdash; academic and personal projects.</li>
         <li><code>Teaching</code> &mdash; courses I've TA'd and mentorship work.</li>
     </ul>
     <p class="mb-0">

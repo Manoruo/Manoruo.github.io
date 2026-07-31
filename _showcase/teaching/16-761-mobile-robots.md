@@ -16,7 +16,8 @@ link_text: Course website
 ---
 
 <p class="mb-0">
-  Graduate lecture course covering the theory and practice of mobile-robot algorithms across four
-  modules, with five assignments that build toward an autonomous quadrotor exploration system.
-  Taught by Dr. Wennie Tabib.
+  Graduate-level course on mobile robotics covering the theory and implementation of autonomous systems. 
+  Topics include aerial robot autonomy, software engineering for robotics, probabilistic algorithms for 
+  perception and planning, and the development of a complete autonomous quadrotor exploration system through 
+  five hands-on projects
 </p>

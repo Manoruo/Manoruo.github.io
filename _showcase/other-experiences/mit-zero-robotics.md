@@ -7,9 +7,7 @@ title: Zero Robotics
 subtitle: MIT &middot; Space Enabled Media Lab &middot; Summer 2022
 icon: fas fa-satellite
 color: linear-gradient(135deg, #a31f34, #5b0e1d)
-description: >-
-  Tuned PID parameters for the Astrobee robot simulator, automated data collection and analysis,
-  and helped host the Zero Robotics 2022 competition alongside NASA astronauts.
+description:
 skills:
   - Controls
   - Simulation
@@ -18,13 +16,16 @@ skills:
 ---
 
 <p class="mb-3">
-  Summer at MIT's <strong>Space Enabled Media Lab</strong> helping run <strong>Zero Robotics</strong>
-  &mdash; an international competition where student code runs live on the <strong>Astrobee</strong>
-  free-flyers aboard the ISS. My role was closer to a <strong>program manager</strong>: I helped
-  <strong>design the game rules and challenges</strong> that pushed students to sharpen their algorithms,
-  tuned PID controllers on the Astrobee simulator that teams programmed against, and helped host
-  the 2022 ISS finals alongside NASA astronauts.
+  I spent the summer at MIT's <strong>Space Enabled Media Lab</strong> working on
+  <strong>Zero Robotics</strong>, an international programming competition that
+  makes space robotics more accessible by giving students the opportunity to
+  write code that is executed on the <strong>Astrobee robots aboard the
+  International Space Station</strong> during the final competition. I helped
+  design the competition challenges, tuned PID controllers for the Astrobee
+  simulator that students programmed against, and helped host the 2022 ISS
+  finals alongside NASA astronauts.
 </p>
+
 
 <div class="row">
   <div class="col-sm-8 mt-3 mt-md-0">

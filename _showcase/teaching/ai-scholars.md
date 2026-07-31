@@ -17,14 +17,18 @@ links:
   GitHub: https://github.com/Moodwave-emotion-detector/AIS-project
 ---
 
+```html
 <p class="mb-3">
-  Guided a team of five pre-college students through a 4-week research project: training a CNN to
-  classify speech into 6 emotions and deploying it to run <strong>entirely in the browser</strong>
-  &mdash; no server, no upload.
+  Mentored a team of five students in a four-week pre-college research program, guiding them
+  through the development of a speech emotion recognition system, from preparing the data and
+  training a machine learning model to deploying it as a web application that runs entirely in the
+  browser using TensorFlow.js.
 </p>
 
 <p class="mb-0">
-  Training corpus combined four public datasets (RAVDESS, CREMA-D, TESS, SAVEE), all relabeled
-  into a shared 6-class scheme and converted to mel-spectrograms. Final model was exported to
-  TensorFlow.js so the demo runs anywhere with a mic.
+  Combined four public speech emotion datasets (RAVDESS, CREMA-D, TESS, and SAVEE) into a unified
+  six-class dataset, converted audio recordings into mel-spectrograms, trained a convolutional
+  neural network (CNN) to classify emotions, and deployed the final model for real-time,
+  inference directly in the browser.
 </p>
+```
