@@ -13,4 +13,3 @@ pages:
   url: /showcase
 - name: Resume
   url: /resume
-  target: _blank   # opens the embedded PDF viewer in a new tab
