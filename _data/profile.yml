@@ -54,7 +54,7 @@ education:
 
 - name: University of Maryland, Baltimore County
   color: "#FFC72C"
-  position: B.S., Computer Science
+  position: B.S., Computer Science &middot; <em>Summa Cum Laude</em>
   date: Aug. 2020 - Dec. 2023
 
 # experience:
@@ -65,7 +65,5 @@ education:
 awards:
 - name: GEM Fellow
   date: 2024
-- name: Summa Cum Laude
-  date: 2023
 - name: Meyerhoff Scholar
   date: 2020
