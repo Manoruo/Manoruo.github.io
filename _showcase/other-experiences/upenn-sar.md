@@ -33,17 +33,17 @@ skills:
 
 <div class="row">
   <div class="col-sm-4 mt-3 mt-md-1">
-    <img src="{{ "/assets/images/showcase/upenn-sar/pcb_schem.png" | relative_url }}" alt="RS232 to USB PCB schematic" class="img-fluid rounded">
+    <img src="{{ "/assets/images/showcase/upenn-sar/pcb_schem.png" | relative_url }}" alt="RS232 to USB PCB schematic" class="img-fluid rounded pcb-gallery-image">
     <p class="small text-muted mt-2 mb-0 text-center">Schematic</p>
   </div>
 
   <div class="col-sm-4 mt-3 mt-md-1">
-    <img src="{{ "/assets/images/showcase/upenn-sar/pcb_footprint.png" | relative_url }}" alt="PCB layout and routing" class="img-fluid rounded">
+    <img src="{{ "/assets/images/showcase/upenn-sar/pcb_footprint.png" | relative_url }}" alt="PCB layout and routing" class="img-fluid rounded pcb-gallery-image">
     <p class="small text-muted mt-2 mb-0 text-center">PCB layout</p>
   </div>
 
   <div class="col-sm-4 mt-3 mt-md-1">
-    <img src="{{ "/assets/images/showcase/upenn-sar/pcb_3d.png" | relative_url }}" alt="Assembled RS232 to USB PCB" class="img-fluid rounded">
+    <img src="{{ "/assets/images/showcase/upenn-sar/pcb_3d.png" | relative_url }}" alt="Assembled RS232 to USB PCB" class="img-fluid rounded pcb-gallery-image">
     <p class="small text-muted mt-2 mb-0 text-center">Fabricated board</p>
   </div>
 </div>

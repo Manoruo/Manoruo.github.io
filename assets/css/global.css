@@ -125,6 +125,18 @@ div.lazy {
     font-family: Source Code Pro, monospace;
 }
 
+/* Preserve the original Roblox layout with a very slight overall reduction. */
+.roblox-gallery {
+    width: 96%;
+}
+
+/* Align mixed-aspect PCB art. */
+.pcb-gallery-image {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+}
+
 /* Showcase card banner (shown when a card has no real image): a colored header
    with a centered icon so the card still reads as an "image card". */
 .showcase-banner {
@@ -396,6 +408,19 @@ html[data-theme="dark"] .pub-card:hover {
     border-radius: 0.5rem;
     margin-right: 1.1rem;
     transition: box-shadow 0.2s ease;
+}
+/* Overlay the image edge with the same indigo accent used by publication links. */
+.pub-thumb-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border: 1px solid rgba(79, 70, 229, 0.32);
+    border-radius: inherit;
+    pointer-events: none;
+}
+html[data-theme="dark"] .pub-thumb-wrap::after {
+    border-color: rgba(165, 180, 252, 0.45);
 }
 /* Hover: lift the thumbnail with a soft shadow. */
 .pub-card:hover .pub-thumb-wrap {

@@ -28,7 +28,7 @@ skills:
   <strong>Best Upcoming Experience</strong> at the Roblox Developers
   Conference (RDC).
 </p>
-<div class="row">
+<div class="row roblox-gallery mx-auto">
   <div class="col-sm-7 d-flex flex-column">
     <img
       src="{{ "/assets/images/showcase/roblox/gameplay.webp" | relative_url }}"
@@ -42,17 +42,13 @@ skills:
   </div>
 
   <div class="col-sm-5 d-flex flex-column mt-3 mt-md-0" style="gap: 0.75rem;">
-
     <div>
       <img
         src="{{ "/assets/images/showcase/roblox/candy_land.png" | relative_url }}"
         alt="Candy Land map"
         class="w-100 rounded"
         style="object-fit: cover;">
-
-      <p class="small text-muted mt-1 mb-0 text-center">
-        Candy Land map.
-      </p>
+      <p class="small text-muted mt-1 mb-0 text-center">Candy Land map.</p>
     </div>
 
     <div>
@@ -61,10 +57,7 @@ skills:
         alt="Blimp arena"
         class="w-100 rounded"
         style="object-fit: cover;">
-
-      <p class="small text-muted mt-1 mb-0 text-center">
-        Blimp arena.
-      </p>
+      <p class="small text-muted mt-1 mb-0 text-center">Blimp arena.</p>
     </div>
 
     <div>
@@ -73,11 +66,7 @@ skills:
         alt="Main lobby"
         class="w-100 rounded"
         style="object-fit: cover;">
-
-      <p class="small text-muted mt-1 mb-0 text-center">
-        Main lobby.
-      </p>
+      <p class="small text-muted mt-1 mb-0 text-center">Main lobby.</p>
     </div>
-
   </div>
 </div>
