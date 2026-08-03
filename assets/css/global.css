@@ -409,19 +409,6 @@ html[data-theme="dark"] .pub-card:hover {
     margin-right: 1.1rem;
     transition: box-shadow 0.2s ease;
 }
-/* Overlay the image edge with the same indigo accent used by publication links. */
-.pub-thumb-wrap::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    border: 1px solid rgba(79, 70, 229, 0.32);
-    border-radius: inherit;
-    pointer-events: none;
-}
-html[data-theme="dark"] .pub-thumb-wrap::after {
-    border-color: rgba(165, 180, 252, 0.45);
-}
 /* Hover: lift the thumbnail with a soft shadow. */
 .pub-card:hover .pub-thumb-wrap {
     box-shadow: 0 0.4rem 0.9rem rgba(0, 0, 0, 0.16);
